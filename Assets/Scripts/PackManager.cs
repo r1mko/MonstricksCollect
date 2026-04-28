@@ -1,173 +1,160 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using YG;
 
 public class PackManager : MonoBehaviour
 {
+    // --- ДАТА ПАКОВ (Упрощённая по ТЗ) ---
     [System.Serializable]
     public struct PackData
     {
-        public Button packButton;
         public int packIndex;
         public int[] characterIndices;
-        public RectTransform packRect;
+    }
+
+    // --- ДАТА КНОПОК (Новая) ---
+    [System.Serializable]
+    public struct ButtonData
+    {
+        public Button button;
+        public int packIndex;
+        public RectTransform rectTransform;
         public Vector3 initialPosition;
+        public Vector3 initialRotation; // Euler angles (Z для 2D)
     }
 
-    [SerializeField] private CardManager cardManager;
-    [SerializeField] private UINavigation uINavigation;
-    [SerializeField] private PackData[] packs;
-    [SerializeField] private float hideOtherPacksDuration;
-    [SerializeField] private float moveToCenterDuration;
-    [SerializeField] private float hideSelectedPackDuration;
+    [Header("Пакеты")]
+    [SerializeField] private PackData[] packData;
 
-    private bool isAnimating = false;
-    private RectTransform canvasRect;
+    [Header("Инициализация кнопок")]
+    [SerializeField] private GameObject[] buttonGameObjects;
+    [SerializeField] private ButtonData[] packsButton;
 
-    private void Awake()
+    /// <summary>
+    /// ПКМ по компоненту в инспекторе -> "Initialize Buttons From GameObjects"
+    /// Автоматически собирает компоненты, сохраняет позиции/повороты и определяет packIndex по имени спрайта.
+    /// </summary>
+    [ContextMenu("Initialize Buttons From GameObjects")]
+    private void InitializeButtons()
     {
-        canvasRect = GetComponentInParent<Canvas>().GetComponent<RectTransform>();
-        if (cardManager == null) cardManager = GetComponent<CardManager>();
-        if (uINavigation == null) uINavigation = GetComponent<UINavigation>();
-    }
-
-    private void Start()
-    {
-        for (int i = 0; i < packs.Length; i++)
+        if (buttonGameObjects == null || buttonGameObjects.Length == 0)
         {
-            if (packs[i].packRect != null)
+            Debug.LogWarning("[PackManager] Массив buttonGameObjects пуст. Перетащите кнопки в инспекторе.");
+            return;
+        }
+
+        packsButton = new ButtonData[buttonGameObjects.Length];
+
+        for (int i = 0; i < buttonGameObjects.Length; i++)
+        {
+            GameObject go = buttonGameObjects[i];
+            if (go == null) continue;
+
+            Button btn = go.GetComponent<Button>();
+            RectTransform rt = go.GetComponent<RectTransform>();
+
+            if (btn == null || rt == null)
             {
-                packs[i].initialPosition = packs[i].packRect.position;
+                Debug.LogWarning($"[PackManager] У объекта '{go.name}' отсутствует Button или RectTransform. Пропуск.");
+                continue;
             }
 
-            int index = i;
-            if (packs[index].packButton != null)
+            // Сохраняем начальную позицию и поворот (Z для 2D UI)
+            Vector3 initialPos = rt.position;
+            Vector3 initialRot = rt.eulerAngles;
+
+            // Определяем packIndex по спрайту в Image
+            int detectedPackIndex = GetPackIndexFromSprite(go);
+
+            packsButton[i] = new ButtonData
             {
-                packs[index].packButton.onClick.AddListener(() => OnPackClick(packs[index]));
-            }
+                button = btn,
+                rectTransform = rt,
+                initialPosition = initialPos,
+                initialRotation = initialRot,
+                packIndex = detectedPackIndex
+            };
         }
+
+        Debug.Log($"[PackManager] Успешно инициализировано {packsButton.Length} кнопок. Индексы паков определены по спрайтам.");
     }
 
-    private void OnPackClick(PackData selectedPack)
+    [ContextMenu("Randomize Rotations")]
+    public void RandomizeRotations()
     {
-        if (isAnimating) return;
-        SoundManager.Instance.PlayClick();
-        YG2.InterstitialAdvShow();
-        StartCoroutine(OpenPackSequence(selectedPack));
-    }
+        if (packsButton == null || packsButton.Length == 0) return;
 
-    private IEnumerator OpenPackSequence(PackData selectedPack)
-    {
-        isAnimating = true;
-        uINavigation.CollectionButtonVisibility(false);
-
-        foreach (PackData pack in packs)
+        foreach (var data in packsButton)
         {
-            if (pack.packButton != null)
-                pack.packButton.interactable = false;
-        }
-
-        foreach (PackData pack in packs)
-        {
-            if (pack.packRect != null && pack.packIndex != selectedPack.packIndex)
+            if (data.rectTransform != null)
             {
-                SoundManager.Instance.PlayWhoosh();
-                yield return StartCoroutine(ScaleToZero(pack.packRect, hideOtherPacksDuration));
-            }
-        }
+                float randomZ;
+                if (Random.value < 0.6f)
+                {
+                    int range = Random.Range(0, 2);
+                    if (range == 0)
+                    {
+                        randomZ = Random.Range(-45f, 45f);
+                    }
+                    else
+                    {
+                        randomZ = Random.Range(-220f, -140f);
+                    }
+                }
+                else
+                {
+                    randomZ = Random.Range(0f, 360f);
+                }
 
-        if (selectedPack.characterIndices == null || selectedPack.characterIndices.Length == 0)
-        {
-            Debug.Log($"Pack {selectedPack.packIndex} has no characters!");
-            ResetPackState();
-            yield break;
-        }
-
-        int randomIndex = Random.Range(0, selectedPack.characterIndices.Length);
-        int randomCharacterIndex = selectedPack.characterIndices[randomIndex];
-
-        Debug.Log($"Pack {selectedPack.packIndex} - Random Character Index: {randomCharacterIndex}");
-
-        if (selectedPack.packRect != null)
-        {
-            yield return StartCoroutine(MoveToCenter(selectedPack.packRect, moveToCenterDuration));
-            SoundManager.Instance.PlayOpenPack();
-            yield return StartCoroutine(ScaleToZero(selectedPack.packRect, hideSelectedPackDuration));
-        }
-
-        if (cardManager != null)
-        {
-            yield return StartCoroutine(cardManager.ShowCardByCharacterIndex(randomCharacterIndex));
-        }
-
-        yield return new WaitUntil(() => !cardManager.IsProcessing());
-
-        ResetPackState();
-        isAnimating = false;
-    }
-
-    private void ResetPackState()
-    {
-        foreach (PackData pack in packs)
-        {
-            if (pack.packRect != null)
-            {
-                pack.packRect.position = pack.initialPosition;
-                pack.packRect.localScale = Vector3.one;
-            }
-
-            if (pack.packButton != null)
-            {
-                pack.packButton.interactable = true;
+                Vector3 newRotation = new Vector3(data.rectTransform.eulerAngles.x, data.rectTransform.eulerAngles.y, randomZ);
+                data.rectTransform.rotation = Quaternion.Euler(newRotation);
             }
         }
     }
 
-    private IEnumerator ScaleToZero(RectTransform target, float duration)
+    /// <summary>
+    /// Ищет Image на объекте, проверяет имя спрайта и возвращает соответствующий packIndex.
+    /// Ожидает имена спрайтов: pack1, pack2, pack3, pack4 (регистр не важен).
+    /// </summary>
+    private int GetPackIndexFromSprite(GameObject go)
     {
-        if (target == null) yield break;
-
-        Vector3 startScale = target.localScale;
-        Vector3 endScale = Vector3.zero;
-        float elapsed = 0f;
-
-        while (elapsed < duration)
+        Image img = go.GetComponent<Image>();
+        if (img == null || img.sprite == null)
         {
-            elapsed += Time.deltaTime;
-            float t = elapsed / duration;
-            target.localScale = Vector3.Lerp(startScale, endScale, t);
-            yield return null;
+            Debug.LogWarning($"[PackManager] У объекта '{go.name}' нет Image или спрайта. packIndex = 0 (по умолчанию).");
+            return 0;
         }
 
-        target.localScale = endScale;
+        string spriteName = img.sprite.name.ToLowerInvariant();
+
+        // Ищем паттерн "packX" где X - цифра
+        if (spriteName.Contains("pack"))
+        {
+            foreach (char c in spriteName)
+            {
+                if (char.IsDigit(c))
+                {
+                    int index = int.Parse(c.ToString());
+                    // Debug.Log($"[PackManager] Объект '{go.name}' -> спрайт '{img.sprite.name}' -> packIndex = {index}");
+                    return index;
+                }
+            }
+        }
+
+        Debug.LogWarning($"[PackManager] Не удалось распознать packIndex по спрайту '{img.sprite.name}' на объекте '{go.name}'. Установлен 0.");
+        return 0;
     }
 
-    private IEnumerator MoveToCenter(RectTransform target, float duration)
+    /// <summary>
+    /// ПКМ -> "Reset Pack Indexes to Default" - сбросит все packIndex в 0, если нужно переинициализировать.
+    /// </summary>
+    [ContextMenu("Reset Pack Indexes to Default")]
+    private void ResetPackIndexes()
     {
-        if (target == null || canvasRect == null) yield break;
-
-        Vector3 startPosition = target.position;
-        Vector3 targetPosition = canvasRect.position;
-        float elapsed = 0f;
-
-        while (elapsed < duration)
+        for (int i = 0; i < packsButton.Length; i++)
         {
-            elapsed += Time.deltaTime;
-            float t = elapsed / duration;
-            target.position = Vector3.Lerp(startPosition, targetPosition, t);
-            yield return null;
+            packsButton[i].packIndex = 0;
         }
-
-        target.position = targetPosition;
-    }
-
-    private void OnDestroy()
-    {
-        foreach (PackData pack in packs)
-        {
-            if (pack.packButton != null)
-                pack.packButton.onClick.RemoveAllListeners();
-        }
+        Debug.Log("[PackManager] packIndex сброшен на 0 для всех кнопок.");
     }
 }
