@@ -1,0 +1,3 @@
+﻿Build path: C:/Users/r1mko/Desktop/Яндекс/Опубликовано/Монстрикс/Билд
+Build number: 0
+PluginYG version: 2.0091
