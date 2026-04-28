@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using YG;
 
 public class PackManager : MonoBehaviour
 {
-    // --- ДАТА ПАКОВ (Упрощённая по ТЗ) ---
     [System.Serializable]
     public struct PackData
     {
@@ -12,7 +12,6 @@ public class PackManager : MonoBehaviour
         public int[] characterIndices;
     }
 
-    // --- ДАТА КНОПОК (Новая) ---
     [System.Serializable]
     public struct ButtonData
     {
@@ -20,63 +19,237 @@ public class PackManager : MonoBehaviour
         public int packIndex;
         public RectTransform rectTransform;
         public Vector3 initialPosition;
-        public Vector3 initialRotation; // Euler angles (Z для 2D)
+        public Vector3 initialRotation;
     }
 
-    [Header("Пакеты")]
+    [SerializeField] private CardManager cardManager;
+    [SerializeField] private UINavigation uINavigation;
     [SerializeField] private PackData[] packData;
-
-    [Header("Инициализация кнопок")]
-    [SerializeField] private GameObject[] buttonGameObjects;
     [SerializeField] private ButtonData[] packsButton;
 
-    /// <summary>
-    /// ПКМ по компоненту в инспекторе -> "Initialize Buttons From GameObjects"
-    /// Автоматически собирает компоненты, сохраняет позиции/повороты и определяет packIndex по имени спрайта.
-    /// </summary>
-    [ContextMenu("Initialize Buttons From GameObjects")]
-    private void InitializeButtons()
+    [Header("UI References")]
+    [SerializeField] private GameObject collectionButton;
+    [SerializeField] private GameObject shuffleButton;
+
+    [Header("Settings")]
+    [SerializeField] private float moveToCenterDuration = 0.5f;
+    [SerializeField] private float hideSelectedPackDuration = 0.3f;
+    [SerializeField] private float resetDuration = 0.3f;
+
+    private bool isAnimating = false;
+    private RectTransform canvasRect;
+    private Transform parentTransform;
+
+    private void Awake()
     {
-        if (buttonGameObjects == null || buttonGameObjects.Length == 0)
+        canvasRect = GetComponentInParent<Canvas>().GetComponent<RectTransform>();
+        if (cardManager == null) cardManager = GetComponent<CardManager>();
+        if (uINavigation == null) uINavigation = GetComponent<UINavigation>();
+
+        if (packsButton != null && packsButton.Length > 0)
         {
-            Debug.LogWarning("[PackManager] Массив buttonGameObjects пуст. Перетащите кнопки в инспекторе.");
-            return;
+            parentTransform = packsButton[0].rectTransform.parent;
         }
+    }
 
-        packsButton = new ButtonData[buttonGameObjects.Length];
-
-        for (int i = 0; i < buttonGameObjects.Length; i++)
+    private void Start()
+    {
+        for (int i = 0; i < packsButton.Length; i++)
         {
-            GameObject go = buttonGameObjects[i];
-            if (go == null) continue;
-
-            Button btn = go.GetComponent<Button>();
-            RectTransform rt = go.GetComponent<RectTransform>();
-
-            if (btn == null || rt == null)
+            int index = i;
+            if (packsButton[index].button != null)
             {
-                Debug.LogWarning($"[PackManager] У объекта '{go.name}' отсутствует Button или RectTransform. Пропуск.");
-                continue;
+                packsButton[index].button.onClick.AddListener(() => OnPackClick(packsButton[index]));
             }
+        }
+    }
 
-            // Сохраняем начальную позицию и поворот (Z для 2D UI)
-            Vector3 initialPos = rt.position;
-            Vector3 initialRot = rt.eulerAngles;
+    private void OnPackClick(ButtonData selectedPackData)
+    {
+        if (isAnimating) return;
 
-            // Определяем packIndex по спрайту в Image
-            int detectedPackIndex = GetPackIndexFromSprite(go);
+        PackData selectedPack = GetPackDataByIndex(selectedPackData.packIndex);
+        if (selectedPack.characterIndices == null || selectedPack.characterIndices.Length == 0) return;
 
-            packsButton[i] = new ButtonData
-            {
-                button = btn,
-                rectTransform = rt,
-                initialPosition = initialPos,
-                initialRotation = initialRot,
-                packIndex = detectedPackIndex
-            };
+        isAnimating = true;
+        SoundManager.Instance.PlayClick();
+        YG2.InterstitialAdvShow();
+
+        if (collectionButton != null) collectionButton.SetActive(false);
+        if (shuffleButton != null) shuffleButton.SetActive(false);
+
+        foreach (var data in packsButton)
+        {
+            if (data.button != null) data.button.interactable = false;
         }
 
-        Debug.Log($"[PackManager] Успешно инициализировано {packsButton.Length} кнопок. Индексы паков определены по спрайтам.");
+        selectedPackData.rectTransform.SetAsLastSibling();
+
+        StartCoroutine(OpenPackSequence(selectedPackData, selectedPack));
+    }
+
+    private IEnumerator OpenPackSequence(ButtonData buttonData, PackData packData)
+    {
+        RectTransform rt = buttonData.rectTransform;
+        Vector3 startPos = rt.position;
+        Vector3 startScale = new Vector3(rt.rect.width, rt.rect.height, 1f);
+        Vector3 targetPos = canvasRect.position;
+        Vector3 targetScale = startScale * 2f;
+
+        float elapsed = 0f;
+        while (elapsed < moveToCenterDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / moveToCenterDuration;
+
+            rt.position = Vector3.Lerp(startPos, targetPos, t);
+
+            float currentWidth = Mathf.Lerp(startScale.x, targetScale.x, t);
+            float currentHeight = Mathf.Lerp(startScale.y, targetScale.y, t);
+            rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, currentWidth);
+            rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, currentHeight);
+
+            yield return null;
+        }
+
+        rt.position = targetPos;
+        rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, targetScale.x);
+        rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, targetScale.y);
+
+        SoundManager.Instance.PlayOpenPack();
+        yield return StartCoroutine(ScaleToZero(rt, hideSelectedPackDuration));
+
+        int randomIndex = Random.Range(0, packData.characterIndices.Length);
+        int randomCharacterIndex = packData.characterIndices[randomIndex];
+
+        if (cardManager != null)
+        {
+            yield return StartCoroutine(cardManager.ShowCardByCharacterIndex(randomCharacterIndex));
+        }
+
+        yield return new WaitUntil(() => !cardManager.IsProcessing());
+
+        ResetPackState(buttonData);
+
+        CheckAndRefreshAllPacks();
+
+        isAnimating = false;
+    }
+
+    private IEnumerator ResetPackState(ButtonData data)
+    {
+        RectTransform rt = data.rectTransform;
+        if (rt == null) yield break;
+
+        Vector3 startPos = rt.position;
+        Quaternion startRot = rt.rotation;
+        Vector2 startSize = new Vector2(rt.rect.width, rt.rect.height);
+
+        // Предполагаем, что начальный размер был нормальным (или можно сохранить его в ButtonData при инициализации)
+        // Для простоты возвращаем масштаб 1 через localScale, если анимация размера не критична, 
+        // но раз мы меняли sizeDelta, нужно вернуть и её. 
+        // Однако, чаще всего проще вернуть позицию и ротацию, а скейл/размер сбросить мгновенно или тоже плавно.
+        // Сделаем плавный возврат позиции и ротации.
+
+        float elapsed = 0f;
+        while (elapsed < resetDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / resetDuration;
+
+            rt.position = Vector3.Lerp(startPos, data.initialPosition, t);
+            rt.rotation = Quaternion.Slerp(startRot, Quaternion.Euler(data.initialRotation), t);
+
+            yield return null;
+        }
+
+        rt.position = data.initialPosition;
+        rt.rotation = Quaternion.Euler(data.initialRotation);
+        rt.localScale = Vector3.one;
+
+        // Если важно вернуть и размер (width/height), нужно добавить лерпание SetSizeWithCurrentAnchors аналогично позиции
+    }
+
+    private void CheckAndRefreshAllPacks()
+    {
+        bool allInactive = true;
+        foreach (var data in packsButton)
+        {
+            if (data.rectTransform != null && data.rectTransform.gameObject.activeSelf)
+            {
+                allInactive = false;
+                break;
+            }
+        }
+
+        if (allInactive)
+        {
+            RefreshAllPacks();
+        }
+        else
+        {
+            foreach (var data in packsButton)
+            {
+                if (data.button != null) data.button.interactable = true;
+            }
+            if (collectionButton != null) collectionButton.SetActive(true);
+            if (shuffleButton != null) shuffleButton.SetActive(true);
+        }
+    }
+
+    public void RefreshAllPacks()
+    {
+        foreach (var data in packsButton)
+        {
+            if (data.rectTransform != null)
+            {
+                data.rectTransform.gameObject.SetActive(true);
+                data.rectTransform.position = data.initialPosition;
+                data.rectTransform.rotation = Quaternion.Euler(data.initialRotation);
+                data.rectTransform.localScale = Vector3.one;
+            }
+            if (data.button != null) data.button.interactable = true;
+        }
+
+        RandomizeRotations();
+
+        if (collectionButton != null) collectionButton.SetActive(true);
+        if (shuffleButton != null) shuffleButton.SetActive(true);
+    }
+
+    private PackData GetPackDataByIndex(int index)
+    {
+        foreach (var pack in packData)
+        {
+            if (pack.packIndex == index) return pack;
+        }
+        return default(PackData);
+    }
+
+    private IEnumerator ScaleToZero(RectTransform target, float duration)
+    {
+        if (target == null) yield break;
+
+        Vector2 startSize = new Vector2(target.rect.width, target.rect.height);
+        Vector2 endSize = Vector2.zero;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+
+            float w = Mathf.Lerp(startSize.x, endSize.x, t);
+            float h = Mathf.Lerp(startSize.y, endSize.y, t);
+
+            target.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, w);
+            target.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, h);
+
+            yield return null;
+        }
+
+        target.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 0);
+        target.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 0);
     }
 
     [ContextMenu("Randomize Rotations")]
@@ -84,77 +257,36 @@ public class PackManager : MonoBehaviour
     {
         if (packsButton == null || packsButton.Length == 0) return;
 
-        foreach (var data in packsButton)
+        for (int i = 0; i < packsButton.Length; i++)
         {
-            if (data.rectTransform != null)
+            if (packsButton[i].rectTransform != null)
             {
                 float randomZ;
                 if (Random.value < 0.6f)
                 {
                     int range = Random.Range(0, 2);
-                    if (range == 0)
-                    {
-                        randomZ = Random.Range(-45f, 45f);
-                    }
-                    else
-                    {
-                        randomZ = Random.Range(-220f, -140f);
-                    }
+                    if (range == 0) randomZ = Random.Range(-45f, 45f);
+                    else randomZ = Random.Range(-220f, -140f);
                 }
                 else
                 {
                     randomZ = Random.Range(0f, 360f);
                 }
 
-                Vector3 newRotation = new Vector3(data.rectTransform.eulerAngles.x, data.rectTransform.eulerAngles.y, randomZ);
-                data.rectTransform.rotation = Quaternion.Euler(newRotation);
+                // Обновляем сохраненное начальное вращение
+                packsButton[i].initialRotation = new Vector3(packsButton[i].rectTransform.eulerAngles.x, packsButton[i].rectTransform.eulerAngles.y, randomZ);
+
+                // Применяем вращение
+                packsButton[i].rectTransform.rotation = Quaternion.Euler(packsButton[i].initialRotation);
             }
         }
     }
 
-    /// <summary>
-    /// Ищет Image на объекте, проверяет имя спрайта и возвращает соответствующий packIndex.
-    /// Ожидает имена спрайтов: pack1, pack2, pack3, pack4 (регистр не важен).
-    /// </summary>
-    private int GetPackIndexFromSprite(GameObject go)
+    private void OnDestroy()
     {
-        Image img = go.GetComponent<Image>();
-        if (img == null || img.sprite == null)
+        foreach (var data in packsButton)
         {
-            Debug.LogWarning($"[PackManager] У объекта '{go.name}' нет Image или спрайта. packIndex = 0 (по умолчанию).");
-            return 0;
+            if (data.button != null) data.button.onClick.RemoveAllListeners();
         }
-
-        string spriteName = img.sprite.name.ToLowerInvariant();
-
-        // Ищем паттерн "packX" где X - цифра
-        if (spriteName.Contains("pack"))
-        {
-            foreach (char c in spriteName)
-            {
-                if (char.IsDigit(c))
-                {
-                    int index = int.Parse(c.ToString());
-                    // Debug.Log($"[PackManager] Объект '{go.name}' -> спрайт '{img.sprite.name}' -> packIndex = {index}");
-                    return index;
-                }
-            }
-        }
-
-        Debug.LogWarning($"[PackManager] Не удалось распознать packIndex по спрайту '{img.sprite.name}' на объекте '{go.name}'. Установлен 0.");
-        return 0;
-    }
-
-    /// <summary>
-    /// ПКМ -> "Reset Pack Indexes to Default" - сбросит все packIndex в 0, если нужно переинициализировать.
-    /// </summary>
-    [ContextMenu("Reset Pack Indexes to Default")]
-    private void ResetPackIndexes()
-    {
-        for (int i = 0; i < packsButton.Length; i++)
-        {
-            packsButton[i].packIndex = 0;
-        }
-        Debug.Log("[PackManager] packIndex сброшен на 0 для всех кнопок.");
     }
 }

@@ -3613,6 +3613,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eab3b42d2a8e5434cbed6e76be5b3168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PackManager
+  cardManager: {fileID: 292939600}
+  uINavigation: {fileID: 292939598}
   packData:
   - packIndex: 1
     characterIndices: 0000000001000000020000000300000004000000050000000600000007000000
@@ -3622,91 +3624,6 @@ MonoBehaviour:
     characterIndices: 0f0000001000000011000000120000001300000014000000
   - packIndex: 4
     characterIndices: 15000000160000001700000018000000190000001a000000
-  buttonGameObjects:
-  - {fileID: 1012206916}
-  - {fileID: 1307850855}
-  - {fileID: 1308512997}
-  - {fileID: 366471568}
-  - {fileID: 669430069}
-  - {fileID: 46160196}
-  - {fileID: 1937076359}
-  - {fileID: 1769697030}
-  - {fileID: 1256061890}
-  - {fileID: 90084174}
-  - {fileID: 807753272}
-  - {fileID: 771862679}
-  - {fileID: 245902483}
-  - {fileID: 979494383}
-  - {fileID: 32762166}
-  - {fileID: 1500462277}
-  - {fileID: 497363715}
-  - {fileID: 637777218}
-  - {fileID: 1225931460}
-  - {fileID: 173660904}
-  - {fileID: 841037702}
-  - {fileID: 1752843046}
-  - {fileID: 800590028}
-  - {fileID: 1665403294}
-  - {fileID: 2044207873}
-  - {fileID: 951363075}
-  - {fileID: 681346439}
-  - {fileID: 1851693831}
-  - {fileID: 1653892907}
-  - {fileID: 1980548761}
-  - {fileID: 297461708}
-  - {fileID: 200341192}
-  - {fileID: 563520336}
-  - {fileID: 1816224256}
-  - {fileID: 844435642}
-  - {fileID: 124106023}
-  - {fileID: 942585502}
-  - {fileID: 414764622}
-  - {fileID: 205994049}
-  - {fileID: 192319564}
-  - {fileID: 1415486730}
-  - {fileID: 1254872075}
-  - {fileID: 1445234090}
-  - {fileID: 1749942140}
-  - {fileID: 1807124525}
-  - {fileID: 546816899}
-  - {fileID: 1026814700}
-  - {fileID: 1244211749}
-  - {fileID: 1543699721}
-  - {fileID: 79900502}
-  - {fileID: 302820384}
-  - {fileID: 787945821}
-  - {fileID: 1430366988}
-  - {fileID: 1205477487}
-  - {fileID: 1383974724}
-  - {fileID: 2011268508}
-  - {fileID: 2061306498}
-  - {fileID: 1829701563}
-  - {fileID: 509050321}
-  - {fileID: 1572471140}
-  - {fileID: 1781513549}
-  - {fileID: 297554658}
-  - {fileID: 1730445659}
-  - {fileID: 500977165}
-  - {fileID: 2029644671}
-  - {fileID: 2088828173}
-  - {fileID: 1491452284}
-  - {fileID: 1769920396}
-  - {fileID: 1247397014}
-  - {fileID: 229977755}
-  - {fileID: 530960894}
-  - {fileID: 347534943}
-  - {fileID: 132651131}
-  - {fileID: 1043699455}
-  - {fileID: 217120026}
-  - {fileID: 609674090}
-  - {fileID: 1976145327}
-  - {fileID: 1469889910}
-  - {fileID: 1127052414}
-  - {fileID: 309884634}
-  - {fileID: 1670917631}
-  - {fileID: 1036332041}
-  - {fileID: 1793551487}
-  - {fileID: 2132919824}
   packsButton:
   - button: {fileID: 1012206921}
     packIndex: 1
@@ -4128,6 +4045,11 @@ MonoBehaviour:
     rectTransform: {fileID: 2132919825}
     initialPosition: {x: 1328.9512, y: 709.04675, z: 0}
     initialRotation: {x: -0, y: 0, z: 0}
+  collectionButton: {fileID: 1733309624}
+  shuffleButton: {fileID: 1685236098}
+  moveToCenterDuration: 0.5
+  hideSelectedPackDuration: 0.3
+  resetDuration: 0.3
 --- !u!114 &292939600
 MonoBehaviour:
   m_ObjectHideFlags: 0
