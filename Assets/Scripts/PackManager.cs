@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using YG;
+using System.Collections.Generic;
 
 public class PackManager : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class PackManager : MonoBehaviour
 
     [Header("UI References")]
     [SerializeField] private GameObject collectionButton;
-    [SerializeField] private GameObject shuffleButton;
+    [SerializeField] private Button shuffleButton;
 
     [Header("Settings")]
     [SerializeField] private float moveToCenterDuration = 0.5f;
@@ -58,7 +59,10 @@ public class PackManager : MonoBehaviour
             }
         }
 
+        shuffleButton.onClick.AddListener(RefreshAllPacks);
+
         RandomizeRotations();
+        ShufflePackPositionsOnly();
     }
 
     private void OnPackClick(ButtonData selectedPackData)
@@ -73,7 +77,7 @@ public class PackManager : MonoBehaviour
         YG2.InterstitialAdvShow();
 
         if (collectionButton != null) collectionButton.SetActive(false);
-        if (shuffleButton != null) shuffleButton.SetActive(false);
+        if (shuffleButton != null) shuffleButton.gameObject.SetActive(false);
 
         foreach (var data in packsButton)
         {
@@ -182,7 +186,7 @@ public class PackManager : MonoBehaviour
                 if (data.button != null) data.button.interactable = true;
             }
             if (collectionButton != null) collectionButton.SetActive(true);
-            if (shuffleButton != null) shuffleButton.SetActive(true);
+            if (shuffleButton != null) shuffleButton.gameObject.SetActive(true);
         }
     }
 
@@ -201,9 +205,10 @@ public class PackManager : MonoBehaviour
         }
 
         RandomizeRotations();
+        ShufflePackPositionsOnly();
 
         if (collectionButton != null) collectionButton.SetActive(true);
-        if (shuffleButton != null) shuffleButton.SetActive(true);
+        if (shuffleButton != null) shuffleButton.gameObject.SetActive(true);
     }
 
     private PackData GetPackDataByIndex(int index)
@@ -269,6 +274,75 @@ public class PackManager : MonoBehaviour
                 packsButton[i].rectTransform.rotation = Quaternion.Euler(packsButton[i].initialRotation);
             }
         }
+    }
+
+    [ContextMenu("Shuffle Pack Positions Only")]
+    public void ShufflePackPositionsOnly()
+    {
+        if (packsButton == null || packsButton.Length < 2) return;
+
+        // 1. Собираем все изначальные позиции в отдельный список
+        List<Vector3> positions = new List<Vector3>();
+        foreach (var data in packsButton)
+        {
+            positions.Add(data.initialPosition);
+        }
+
+        // 2. Перемешиваем список позиций алгоритмом Фишера-Йетса
+        for (int i = positions.Count - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            Vector3 temp = positions[i];
+            positions[i] = positions[j];
+            positions[j] = temp;
+        }
+
+        // 3. Присваиваем перемешанные позиции обратно в наши данные
+        for (int i = 0; i < packsButton.Length; i++)
+        {
+            packsButton[i].initialPosition = positions[i];
+
+            if (packsButton[i].rectTransform != null)
+            {
+                packsButton[i].rectTransform.position = packsButton[i].initialPosition;
+            }
+        }
+
+        ShuffleSiblingOrder();
+        Debug.Log("[PackManager] Позиции паков перемешаны.");
+    }
+
+    [ContextMenu("Shuffle Sibling Order")]
+    public void ShuffleSiblingOrder()
+    {
+        if (packsButton == null || packsButton.Length < 2) return;
+
+        // Создаем список индексов от 0 до N-1
+        List<int> indices = new List<int>();
+        for (int i = 0; i < packsButton.Length; i++)
+        {
+            indices.Add(i);
+        }
+
+        // Перемешиваем список индексов (Фишер-Йетс)
+        for (int i = indices.Count - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            int temp = indices[i];
+            indices[i] = indices[j];
+            indices[j] = temp;
+        }
+
+        // Применяем новые порядковые номера (слои) к RectTransform
+        for (int i = 0; i < packsButton.Length; i++)
+        {
+            if (packsButton[i].rectTransform != null)
+            {
+                packsButton[i].rectTransform.SetSiblingIndex(indices[i]);
+            }
+        }
+
+        Debug.Log("[PackManager] Порядок слоев (Sibling Index) перемешан.");
     }
 
     [ContextMenu("Initialize Buttons From GameObjects")]
