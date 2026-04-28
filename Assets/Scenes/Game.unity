@@ -840,7 +840,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -292.58105, y: -237}
+  m_AnchoredPosition: {x: -292.58105, y: -226}
   m_SizeDelta: {x: 100, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &46160198
@@ -2467,7 +2467,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 24.000025, y: -239}
+  m_AnchoredPosition: {x: 24.000025, y: -222}
   m_SizeDelta: {x: 100, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &200341194
@@ -2707,7 +2707,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 319.68234, y: -239.00002}
+  m_AnchoredPosition: {x: 329, y: -203}
   m_SizeDelta: {x: 100, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &217120028
@@ -3045,7 +3045,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -517.58105, y: -239.00003}
+  m_AnchoredPosition: {x: -517.58105, y: -212}
   m_SizeDelta: {x: 100, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &245902485
@@ -3615,91 +3615,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PackManager
   cardManager: {fileID: 292939600}
   uINavigation: {fileID: 292939598}
-  buttonGameObjects:
-  - {fileID: 1012206916}
-  - {fileID: 1307850855}
-  - {fileID: 1308512997}
-  - {fileID: 366471568}
-  - {fileID: 669430069}
-  - {fileID: 46160196}
-  - {fileID: 1937076359}
-  - {fileID: 1769697030}
-  - {fileID: 1256061890}
-  - {fileID: 90084174}
-  - {fileID: 807753272}
-  - {fileID: 771862679}
-  - {fileID: 245902483}
-  - {fileID: 979494383}
-  - {fileID: 32762166}
-  - {fileID: 1500462277}
-  - {fileID: 497363715}
-  - {fileID: 637777218}
-  - {fileID: 1225931460}
-  - {fileID: 173660904}
-  - {fileID: 841037702}
-  - {fileID: 1752843046}
-  - {fileID: 800590028}
-  - {fileID: 1665403294}
-  - {fileID: 2044207873}
-  - {fileID: 951363075}
-  - {fileID: 681346439}
-  - {fileID: 1851693831}
-  - {fileID: 1653892907}
-  - {fileID: 1980548761}
-  - {fileID: 297461708}
-  - {fileID: 200341192}
-  - {fileID: 563520336}
-  - {fileID: 1816224256}
-  - {fileID: 844435642}
-  - {fileID: 124106023}
-  - {fileID: 942585502}
-  - {fileID: 414764622}
-  - {fileID: 205994049}
-  - {fileID: 192319564}
-  - {fileID: 1415486730}
-  - {fileID: 1254872075}
-  - {fileID: 1445234090}
-  - {fileID: 1749942140}
-  - {fileID: 1807124525}
-  - {fileID: 546816899}
-  - {fileID: 1026814700}
-  - {fileID: 1244211749}
-  - {fileID: 1543699721}
-  - {fileID: 79900502}
-  - {fileID: 302820384}
-  - {fileID: 787945821}
-  - {fileID: 1430366988}
-  - {fileID: 1205477487}
-  - {fileID: 1383974724}
-  - {fileID: 2011268508}
-  - {fileID: 2061306498}
-  - {fileID: 1829701563}
-  - {fileID: 509050321}
-  - {fileID: 1572471140}
-  - {fileID: 1781513549}
-  - {fileID: 297554658}
-  - {fileID: 1730445659}
-  - {fileID: 500977165}
-  - {fileID: 2029644671}
-  - {fileID: 2088828173}
-  - {fileID: 1491452284}
-  - {fileID: 1769920396}
-  - {fileID: 1247397014}
-  - {fileID: 229977755}
-  - {fileID: 530960894}
-  - {fileID: 347534943}
-  - {fileID: 132651131}
-  - {fileID: 1043699455}
-  - {fileID: 217120026}
-  - {fileID: 609674090}
-  - {fileID: 1976145327}
-  - {fileID: 1469889910}
-  - {fileID: 1127052414}
-  - {fileID: 309884634}
-  - {fileID: 1670917631}
-  - {fileID: 1036332041}
-  - {fileID: 1793551487}
-  - {fileID: 2132919824}
   packData:
   - packIndex: 1
     characterIndices: 0000000001000000020000000300000004000000050000000600000007000000
@@ -3713,507 +3628,507 @@ MonoBehaviour:
   - button: {fileID: 1012206921}
     packIndex: 1
     rectTransform: {fileID: 1012206917}
-    initialPosition: {x: 476.22974, y: 540, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1307850857}
     packIndex: 1
     rectTransform: {fileID: 1307850856}
-    initialPosition: {x: 524.5287, y: 709.04675, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1308512999}
     packIndex: 1
     rectTransform: {fileID: 1308512998}
-    initialPosition: {x: 586.24426, y: 569.5161, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 366471570}
     packIndex: 1
     rectTransform: {fileID: 366471569}
-    initialPosition: {x: 696.2588, y: 569.5161, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 669430071}
     packIndex: 1
     rectTransform: {fileID: 669430070}
-    initialPosition: {x: 696.2588, y: 290.4548, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 46160198}
     packIndex: 1
     rectTransform: {fileID: 46160197}
-    initialPosition: {x: 567.4613, y: 222.03113, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1937076361}
     packIndex: 1
     rectTransform: {fileID: 1937076360}
-    initialPosition: {x: 574.16956, y: 424.6189, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1769697032}
     packIndex: 1
     rectTransform: {fileID: 1769697031}
-    initialPosition: {x: 352.79877, y: 424.6189, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1256061892}
     packIndex: 1
     rectTransform: {fileID: 1256061891}
-    initialPosition: {x: 297.79144, y: 652.6978, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 90084176}
     packIndex: 1
     rectTransform: {fileID: 90084175}
-    initialPosition: {x: 591.61084, y: 702.33856, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 807753274}
     packIndex: 1
     rectTransform: {fileID: 807753273}
-    initialPosition: {x: 669.4259, y: 219.34781, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 771862681}
     packIndex: 1
     rectTransform: {fileID: 771862680}
-    initialPosition: {x: 448.05527, y: 219.34781, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 245902485}
     packIndex: 1
     rectTransform: {fileID: 245902484}
-    initialPosition: {x: 265.5921, y: 219.34781, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 979494385}
     packIndex: 1
     rectTransform: {fileID: 979494384}
-    initialPosition: {x: 284.37512, y: 450.11005, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 32762168}
     packIndex: 1
     rectTransform: {fileID: 32762167}
-    initialPosition: {x: 419.8808, y: 711.73004, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1500462279}
     packIndex: 1
     rectTransform: {fileID: 1500462278}
-    initialPosition: {x: 319.25775, y: 234.1059, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 497363717}
     packIndex: 1
     rectTransform: {fileID: 497363716}
-    initialPosition: {x: 472.20477, y: 432.66873, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 637777220}
     packIndex: 1
     rectTransform: {fileID: 637777219}
-    initialPosition: {x: 693.57556, y: 711.73004, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1225931462}
     packIndex: 1
     rectTransform: {fileID: 1225931461}
-    initialPosition: {x: 670.7677, y: 475.60126, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 173660906}
     packIndex: 1
     rectTransform: {fileID: 173660905}
-    initialPosition: {x: 394.38965, y: 548.04987, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 841037704}
     packIndex: 1
     rectTransform: {fileID: 841037703}
-    initialPosition: {x: 274.98358, y: 709.04675, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1752843051}
     packIndex: 2
     rectTransform: {fileID: 1752843047}
-    initialPosition: {x: 799.0031, y: 540, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 800590030}
     packIndex: 2
     rectTransform: {fileID: 800590029}
-    initialPosition: {x: 847.30206, y: 709.04675, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1665403296}
     packIndex: 2
     rectTransform: {fileID: 1665403295}
-    initialPosition: {x: 909.0177, y: 569.5161, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 2044207875}
     packIndex: 2
     rectTransform: {fileID: 2044207874}
-    initialPosition: {x: 1019.0322, y: 569.5161, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 951363077}
     packIndex: 2
     rectTransform: {fileID: 951363076}
-    initialPosition: {x: 1019.0322, y: 290.4548, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 681346441}
     packIndex: 2
     rectTransform: {fileID: 681346440}
-    initialPosition: {x: 890.23474, y: 222.03113, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1851693833}
     packIndex: 2
     rectTransform: {fileID: 1851693832}
-    initialPosition: {x: 896.94293, y: 424.6189, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1653892909}
     packIndex: 2
     rectTransform: {fileID: 1653892908}
-    initialPosition: {x: 675.57227, y: 424.6189, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1980548763}
     packIndex: 2
     rectTransform: {fileID: 1980548762}
-    initialPosition: {x: 620.56494, y: 652.6978, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 297461710}
     packIndex: 2
     rectTransform: {fileID: 297461709}
-    initialPosition: {x: 914.38434, y: 702.33856, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 200341194}
     packIndex: 2
     rectTransform: {fileID: 200341193}
-    initialPosition: {x: 992.1994, y: 219.34784, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 563520338}
     packIndex: 2
     rectTransform: {fileID: 563520337}
-    initialPosition: {x: 770.8288, y: 219.34784, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1816224258}
     packIndex: 2
     rectTransform: {fileID: 1816224257}
-    initialPosition: {x: 526.65015, y: 219.34784, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 844435644}
     packIndex: 2
     rectTransform: {fileID: 844435643}
-    initialPosition: {x: 554.8246, y: 450.11008, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 124106025}
     packIndex: 2
     rectTransform: {fileID: 124106024}
-    initialPosition: {x: 742.6543, y: 711.7301, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 942585504}
     packIndex: 2
     rectTransform: {fileID: 942585503}
-    initialPosition: {x: 642.03125, y: 234.10593, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 414764624}
     packIndex: 2
     rectTransform: {fileID: 414764623}
-    initialPosition: {x: 794.9783, y: 432.66876, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 205994051}
     packIndex: 2
     rectTransform: {fileID: 205994050}
-    initialPosition: {x: 1016.34906, y: 711.7301, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 192319566}
     packIndex: 2
     rectTransform: {fileID: 192319565}
-    initialPosition: {x: 993.5412, y: 475.60132, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1415486732}
     packIndex: 2
     rectTransform: {fileID: 1415486731}
-    initialPosition: {x: 717.16315, y: 548.0499, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1254872077}
     packIndex: 2
     rectTransform: {fileID: 1254872076}
-    initialPosition: {x: 564.2161, y: 709.0468, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1445234095}
     packIndex: 3
     rectTransform: {fileID: 1445234091}
-    initialPosition: {x: 1120.997, y: 540, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1749942142}
     packIndex: 3
     rectTransform: {fileID: 1749942141}
-    initialPosition: {x: 1169.2958, y: 709.04675, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1807124527}
     packIndex: 3
     rectTransform: {fileID: 1807124526}
-    initialPosition: {x: 1231.0115, y: 569.5161, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 546816901}
     packIndex: 3
     rectTransform: {fileID: 546816900}
-    initialPosition: {x: 1341.0259, y: 569.5161, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1026814702}
     packIndex: 3
     rectTransform: {fileID: 1026814701}
-    initialPosition: {x: 1341.0259, y: 290.4548, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1244211751}
     packIndex: 3
     rectTransform: {fileID: 1244211750}
-    initialPosition: {x: 1212.2285, y: 222.03113, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1543699723}
     packIndex: 3
     rectTransform: {fileID: 1543699722}
-    initialPosition: {x: 1218.9366, y: 424.6189, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 79900504}
     packIndex: 3
     rectTransform: {fileID: 79900503}
-    initialPosition: {x: 997.566, y: 424.6189, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 302820386}
     packIndex: 3
     rectTransform: {fileID: 302820385}
-    initialPosition: {x: 942.55865, y: 652.6978, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 787945823}
     packIndex: 3
     rectTransform: {fileID: 787945822}
-    initialPosition: {x: 1236.378, y: 702.33856, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1430366990}
     packIndex: 3
     rectTransform: {fileID: 1430366989}
-    initialPosition: {x: 1314.1931, y: 219.34781, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1205477489}
     packIndex: 3
     rectTransform: {fileID: 1205477488}
-    initialPosition: {x: 1092.8225, y: 219.34781, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1383974726}
     packIndex: 3
     rectTransform: {fileID: 1383974725}
-    initialPosition: {x: 848.64386, y: 219.34781, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 2011268510}
     packIndex: 3
     rectTransform: {fileID: 2011268509}
-    initialPosition: {x: 876.81824, y: 450.11005, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 2061306500}
     packIndex: 3
     rectTransform: {fileID: 2061306499}
-    initialPosition: {x: 1064.648, y: 711.73004, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1829701565}
     packIndex: 3
     rectTransform: {fileID: 1829701564}
-    initialPosition: {x: 964.0249, y: 234.1059, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 509050323}
     packIndex: 3
     rectTransform: {fileID: 509050322}
-    initialPosition: {x: 1116.9719, y: 432.66876, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1572471142}
     packIndex: 3
     rectTransform: {fileID: 1572471141}
-    initialPosition: {x: 1338.3427, y: 711.7301, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1781513551}
     packIndex: 3
     rectTransform: {fileID: 1781513550}
-    initialPosition: {x: 1315.5348, y: 475.6013, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 297554660}
     packIndex: 3
     rectTransform: {fileID: 297554659}
-    initialPosition: {x: 1039.1567, y: 548.04987, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1730445661}
     packIndex: 3
     rectTransform: {fileID: 1730445660}
-    initialPosition: {x: 886.2098, y: 709.04675, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 500977170}
     packIndex: 4
     rectTransform: {fileID: 500977166}
-    initialPosition: {x: 1417.0732, y: 540, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 2029644673}
     packIndex: 4
     rectTransform: {fileID: 2029644672}
-    initialPosition: {x: 1465.3723, y: 709.04675, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 2088828175}
     packIndex: 4
     rectTransform: {fileID: 2088828174}
-    initialPosition: {x: 1527.088, y: 569.5161, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1491452286}
     packIndex: 4
     rectTransform: {fileID: 1491452285}
-    initialPosition: {x: 1637.1025, y: 569.5161, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1769920398}
     packIndex: 4
     rectTransform: {fileID: 1769920397}
-    initialPosition: {x: 1637.1025, y: 290.4548, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1247397016}
     packIndex: 4
     rectTransform: {fileID: 1247397015}
-    initialPosition: {x: 1508.305, y: 222.03113, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 229977757}
     packIndex: 4
     rectTransform: {fileID: 229977756}
-    initialPosition: {x: 1515.0131, y: 424.6189, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 530960896}
     packIndex: 4
     rectTransform: {fileID: 530960895}
-    initialPosition: {x: 1293.6423, y: 424.6189, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 347534945}
     packIndex: 4
     rectTransform: {fileID: 347534944}
-    initialPosition: {x: 1238.635, y: 652.6978, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 132651133}
     packIndex: 4
     rectTransform: {fileID: 132651132}
-    initialPosition: {x: 1532.4543, y: 702.33856, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1043699457}
     packIndex: 4
     rectTransform: {fileID: 1043699456}
-    initialPosition: {x: 1610.2695, y: 219.34781, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 217120028}
     packIndex: 4
     rectTransform: {fileID: 217120027}
-    initialPosition: {x: 1388.8989, y: 219.34781, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 609674092}
     packIndex: 4
     rectTransform: {fileID: 609674091}
-    initialPosition: {x: 1144.7202, y: 219.34781, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1976145329}
     packIndex: 4
     rectTransform: {fileID: 1976145328}
-    initialPosition: {x: 1172.8947, y: 450.11005, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1469889912}
     packIndex: 4
     rectTransform: {fileID: 1469889911}
-    initialPosition: {x: 1360.7244, y: 711.73004, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1127052416}
     packIndex: 4
     rectTransform: {fileID: 1127052415}
-    initialPosition: {x: 1260.1013, y: 234.1059, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 309884636}
     packIndex: 4
     rectTransform: {fileID: 309884635}
-    initialPosition: {x: 1413.0483, y: 432.66873, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1670917633}
     packIndex: 4
     rectTransform: {fileID: 1670917632}
-    initialPosition: {x: 1634.4192, y: 711.73004, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1036332043}
     packIndex: 4
     rectTransform: {fileID: 1036332042}
-    initialPosition: {x: 1611.6112, y: 475.60126, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 1793551489}
     packIndex: 4
     rectTransform: {fileID: 1793551488}
-    initialPosition: {x: 1335.2332, y: 548.04987, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   - button: {fileID: 2132919826}
     packIndex: 4
     rectTransform: {fileID: 2132919825}
-    initialPosition: {x: 1182.2861, y: 709.04675, z: 0}
-    initialRotation: {x: -0, y: 0, z: 0}
-    initialSize: {x: 100, y: 175}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: 0, y: 0, z: 0}
+    initialSize: {x: 0, y: 0}
   collectionButton: {fileID: 1733309624}
   shuffleButton: {fileID: 1685236100}
   moveToCenterDuration: 1.25
@@ -7944,7 +7859,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -140.99988, y: -239}
+  m_AnchoredPosition: {x: -140.99988, y: -226}
   m_SizeDelta: {x: 100, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &563520338
@@ -8336,7 +8251,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 137.68231, y: -239.00002}
+  m_AnchoredPosition: {x: 180, y: -199}
   m_SizeDelta: {x: 100, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &609674092
@@ -9273,7 +9188,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -51.99994, y: -237}
+  m_AnchoredPosition: {x: -51.99994, y: -224}
   m_SizeDelta: {x: 100, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &681346441
@@ -9689,7 +9604,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -381.58105, y: -239.00003}
+  m_AnchoredPosition: {x: -381.58105, y: -227}
   m_SizeDelta: {x: 100, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &771862681
@@ -10147,7 +10062,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -216.58115, y: -239.00003}
+  m_AnchoredPosition: {x: -216.58115, y: -224}
   m_SizeDelta: {x: 100, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &807753274
@@ -11630,7 +11545,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 44.00004, y: -186}
+  m_AnchoredPosition: {x: 44.00004, y: -175}
   m_SizeDelta: {x: 100, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &951363077
@@ -12442,7 +12357,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 283.99997, y: -186}
+  m_AnchoredPosition: {x: 283.99997, y: -167}
   m_SizeDelta: {x: 100, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1026814702
@@ -12955,7 +12870,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 484.68225, y: -239.00002}
+  m_AnchoredPosition: {x: 474, y: -220}
   m_SizeDelta: {x: 100, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1043699457
@@ -13644,7 +13559,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 223.68231, y: -227.99998}
+  m_AnchoredPosition: {x: 253, y: -208}
   m_SizeDelta: {x: 100, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1127052416
@@ -14233,7 +14148,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 99.00004, y: -239.00002}
+  m_AnchoredPosition: {x: 99.00004, y: -222}
   m_SizeDelta: {x: 100, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1205477489
@@ -14549,7 +14464,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 188, y: -237}
+  m_AnchoredPosition: {x: 188, y: -216}
   m_SizeDelta: {x: 100, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1244211751
@@ -14669,7 +14584,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 408.68243, y: -237}
+  m_AnchoredPosition: {x: 408.68243, y: -222}
   m_SizeDelta: {x: 100, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1247397016
@@ -16014,7 +15929,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -82.99998, y: -239.00002}
+  m_AnchoredPosition: {x: -82.99998, y: -210}
   m_SizeDelta: {x: 100, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1383974726
@@ -16554,7 +16469,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 263.99994, y: -239.00002}
+  m_AnchoredPosition: {x: 263.99994, y: -222}
   m_SizeDelta: {x: 100, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1430366990
@@ -19909,7 +19824,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 75, y: -60}
+  m_AnchoredPosition: {x: 75, y: -45}
   m_SizeDelta: {x: 128, y: 128}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1685236100
@@ -20347,7 +20262,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -75, y: -25}
+  m_AnchoredPosition: {x: -75, y: -10}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1733309626
@@ -21128,7 +21043,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 504.68243, y: -186}
+  m_AnchoredPosition: {x: 497, y: -173}
   m_SizeDelta: {x: 100, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1769920398
@@ -21730,7 +21645,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -322.9999, y: -239}
+  m_AnchoredPosition: {x: -322.9999, y: -219}
   m_SizeDelta: {x: 100, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1816224258
@@ -21925,7 +21840,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.9999905, y: -227.99998}
+  m_AnchoredPosition: {x: 10, y: -198}
   m_SizeDelta: {x: 100, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1829701565
